@@ -160,7 +160,7 @@ h2 {
                             <div class="col-xl-16">
                                 <div class="row justify-content-center" style="margin-top: 30px">
                                     <h3 style="align-items: center;">
-                                        <kbd>Característica: Mecanismos de ingreso</kbd>
+                                        <kbd>Característica 4: Mecanismos de ingreso</kbd>
                                     </h3>
                                     <br> <br>
                                </div>
@@ -296,31 +296,13 @@ h2 {
                             <div class="col-xl-16">
                                 <div class="row justify-content-center" style="margin-top: 30px">
                                     <h3 style="align-items: center;">
-                                        <kbd>Característica: Número y Calidad Estudiantes Admitidos</kbd>
+                                        <kbd>Característica 5: Número y Calidad Estudiantes Admitidos</kbd>
                                     </h3>
                                     <br> <br>
                                </div>
                             </div>
             </div>
 			<div id="cara2">
-			<div class="containerEstadistica">
-				<div class="container">
-					<h2>Deserciones</h2>
-					<div>
-						<canvas id="myChart2"></canvas>
-					</div>
-				</div>
-			</div>
-
-			<div class="container">
-				<div class="col-xs-12 text-center">
-					<h2>Perdida Cupo</h2>
-				</div>
-
-				<div id="donut-chart"></div>
-			</div>
-
-
 			<div class="containerInforme">
 				<div class="row justify-content-center" style="margin-top: 30px">
 					<div class="col-6">
@@ -360,70 +342,7 @@ h2 {
 					</div>
 				</div>
 			</div>
-		
-	<%
-	
-		Daos_Desercion daosDesercion2 = new Daos_Desercion();
-		ArrayList cantidadHombres2 = daosDesercion2.cantidadDesercionesHombres();
-		ArrayList cantidadMujeres2 = daosDesercion2.cantidadDesercionesMujeres();
-		ArrayList label2 = daosDesercion2.ArregloLabel2();
-				
-	%>
-
-	<script lang="javascript">
-		datosHombres = <%=cantidadHombres2%>;
-		datosMujeres = <%=cantidadMujeres2%>;
-		datosTotal = datosHombres.map( (item, ix) => item + datosMujeres[ix] );
-		label = <%=label%>
-		
-		console.log(datosTotal + " Prueba");
-		
-		ctx = document.getElementById("myChart2").getContext("2d");
-		label = label;
-		 myChart = new Chart(ctx, {
-			type : "bar",
-			data : {
-				labels : label,
-				datasets : [ {
-					label : "Hombres",
-					data : datosHombres,
-					backgroundColor : "rgba(1,52,240,94)",
-				}, {
-					label : "Mujeres",
-					data : datosMujeres,
-					backgroundColor : "rgba(91,240,103,94)",
-				}, {
-					label : "Total",
-					data : datosTotal,
-					backgroundColor : "rgba(240, 226, 58, 94)",
-				},
-				],
-			},
-		});
-	</script>
-	
-	<script lang="javascript">
-		var chart = bb.generate({
-			data : {
-				columns : [ [ "Literal B", 9 ], [ "Literal C", 22 ],
-						[ "Literal D", 5 ], [ "Literal E", 8 ], ],
-				type : "donut",
-				onclick : function(d, i) {
-					console.log("onclick", d, i);
-				},
-				onover : function(d, i) {
-					console.log("onover", d, i);
-				},
-				onout : function(d, i) {
-					console.log("onout", d, i);
-				},
-			},
-			donut : {
-				title : "44",
-			},
-			bindto : "#donut-chart",
-		});
-	</script>
+			
 	</div>
 			</form>
 
@@ -434,7 +353,7 @@ h2 {
                             <div class="col-xl-16">
                                 <div class="row justify-content-center" style="margin-top: 30px">
                                     <h3 style="align-items: center;">
-                                        <kbd>Permanencia y deserción</kbd>
+                                        <kbd>Característica 6: Permanencia y Deserción Estudiantil</kbd>
                                     </h3>
                                     <br> <br>
                                </div>
@@ -445,7 +364,16 @@ h2 {
 				<div class="container">
 					<h2>Deserciones</h2>
 					<div>
-						<canvas id="myChart3"></canvas>
+						<canvas id="myChart2"></canvas>
+					</div>
+				</div>
+			</div>
+			
+			<div class="containerEstadistica">
+				<div class="container">
+					<h2>Línea de Tiempo</h2>
+					<div>
+						<canvas id="myChartTiempo"></canvas>
 					</div>
 				</div>
 			</div>
@@ -455,7 +383,7 @@ h2 {
 					<h2>Perdida Cupo</h2>
 				</div>
 
-				<div id="donut-chart3"></div>
+				<div id="donut-chart"></div>
 			</div>
 
 
@@ -501,22 +429,22 @@ h2 {
 		
 	<%
 	
-		Daos_Desercion daosDesercion3 = new Daos_Desercion();
-		ArrayList cantidadHombres3 = daosDesercion3.cantidadDesercionesHombres();
-		ArrayList cantidadMujeres3 = daosDesercion3.cantidadDesercionesMujeres();
-		ArrayList label3 = daosDesercion3.ArregloLabel2();
+		Daos_Desercion daosDesercion = new Daos_Desercion();
+		ArrayList cantidadHombres = daosDesercion.cantidadDesercionesHombres();
+		ArrayList cantidadMujeres = daosDesercion.cantidadDesercionesMujeres();
+		ArrayList label2 = daosDesercion.ArregloLabel2();
 				
 	%>
 
 	<script lang="javascript">
-		datosHombres = <%=cantidadHombres3%>;
-		datosMujeres = <%=cantidadMujeres3%>;
+		datosHombres = <%=cantidadHombres%>;
+		datosMujeres = <%=cantidadMujeres%>;
 		datosTotal = datosHombres.map( (item, ix) => item + datosMujeres[ix] );
-		label = <%=label3%>
+		label = <%=label2%>
 		
 		console.log(datosTotal + " Prueba");
 		
-		ctx = document.getElementById("myChart3").getContext("2d");
+		ctx = document.getElementById("myChart2").getContext("2d");
 		label = label;
 		 myChart = new Chart(ctx, {
 			type : "bar",
@@ -534,6 +462,38 @@ h2 {
 					label : "Total",
 					data : datosTotal,
 					backgroundColor : "rgba(240, 226, 58, 94)",
+				},
+				],
+			},
+		});
+	</script>
+	
+	<script lang="javascript">
+		datosHombres = <%=cantidadHombres%>;
+		datosMujeres = <%=cantidadMujeres%>;
+		datosTotal = datosHombres.map( (item, ix) => item + datosMujeres[ix] );
+		label = <%=label2%>
+		
+		console.log(datosTotal + " Prueba");
+		
+		ctx = document.getElementById("myChartTiempo").getContext("2d");
+		label = label;
+		 myChart = new Chart(ctx, {
+			type : "line",
+			data : {
+				labels : label,
+				datasets : [ {
+					label : "Total",
+					data : datosTotal,
+					backgroundColor : "rgba(240, 226, 58, 94)",
+				}, {
+					label : "Hombres",
+					data : datosHombres,
+					backgroundColor : "rgba(1,52,240,94)",
+				}, {
+					label : "Mujeres",
+					data : datosMujeres,
+					backgroundColor : "rgba(91,240,103,94)",
 				},
 				],
 			},
@@ -559,7 +519,7 @@ h2 {
 			donut : {
 				title : "44",
 			},
-			bindto : "#donut-chart3",
+			bindto : "#donut-chart",
 		});
 	</script>
 	</div>
@@ -571,7 +531,7 @@ h2 {
                             <div class="col-xl-16">
                                 <div class="row justify-content-center" style="margin-top: 30px">
                                     <h3 style="align-items: center;">
-                                        <kbd>Participación actividades</kbd>
+                                        <kbd>Característica 7: Participación en Actividades de Formación Integral</kbd>
                                     </h3>
                                     <br> <br>
                                </div>
@@ -580,21 +540,12 @@ h2 {
 			<div id="cara4">
 			<div class="containerEstadistica">
 				<div class="container">
-					<h2>Deserciones</h2>
+					<h2>Actividad Politica Social con participación estudiantil</h2>
 					<div>
 						<canvas id="myChart4"></canvas>
 					</div>
 				</div>
 			</div>
-
-			<div class="container">
-				<div class="col-xs-12 text-center">
-					<h2>Perdida Cupo</h2>
-				</div>
-
-				<div id="donut-chart4"></div>
-			</div>
-
 
 			<div class="containerInforme">
 				<div class="row justify-content-center" style="margin-top: 30px">
@@ -708,31 +659,14 @@ h2 {
                             <div class="col-xl-16">
                                 <div class="row justify-content-center" style="margin-top: 30px">
                                     <h3 style="align-items: center;">
-                                        <kbd>Reglamento Estudiantil</kbd>
+                                        <kbd>Característica 8: Reglamento Estudiantil</kbd>
                                     </h3>
                                     <br> <br>
                                </div>
                             </div>
             </div>
 			<div id="cara5">
-			<div class="containerEstadistica">
-				<div class="container">
-					<h2>Deserciones</h2>
-					<div>
-						<canvas id="myChart5"></canvas>
-					</div>
-				</div>
-			</div>
-
-			<div class="container">
-				<div class="col-xs-12 text-center">
-					<h2>Perdida Cupo</h2>
-				</div>
-
-				<div id="donut-chart5"></div>
-			</div>
-
-
+			
 			<div class="containerInforme">
 				<div class="row justify-content-center" style="margin-top: 30px">
 					<div class="col-6">
@@ -814,28 +748,6 @@ h2 {
 		});
 	</script>
 	
-	<script lang="javascript">
-		var chart = bb.generate({
-			data : {
-				columns : [ [ "Literal B", 9 ], [ "Literal C", 22 ],
-						[ "Literal D", 5 ], [ "Literal E", 8 ], ],
-				type : "donut",
-				onclick : function(d, i) {
-					console.log("onclick", d, i);
-				},
-				onover : function(d, i) {
-					console.log("onover", d, i);
-				},
-				onout : function(d, i) {
-					console.log("onout", d, i);
-				},
-			},
-			donut : {
-				title : "44",
-			},
-			bindto : "#donut-chart5",
-		});
-	</script>
 	</div>
 			</form>
 			
@@ -845,31 +757,14 @@ h2 {
                             <div class="col-xl-16">
                                 <div class="row justify-content-center" style="margin-top: 30px">
                                     <h3 style="align-items: center;">
-                                        <kbd>Sistema evaluación estudiante</kbd>
+                                        <kbd>Característica 9: Sistema de Evaluación de Estudiantes</kbd>
                                     </h3>
                                     <br> <br>
                                </div>
                             </div>
             </div>
 			<div id="cara6">
-			<div class="containerEstadistica">
-				<div class="container">
-					<h2>Deserciones</h2>
-					<div>
-						<canvas id="myChart6"></canvas>
-					</div>
-				</div>
-			</div>
-
-			<div class="container">
-				<div class="col-xs-12 text-center">
-					<h2>Perdida Cupo</h2>
-				</div>
-
-				<div id="donut-chart6"></div>
-			</div>
-
-
+			
 			<div class="containerInforme">
 				<div class="row justify-content-center" style="margin-top: 30px">
 					<div class="col-6">
@@ -909,70 +804,6 @@ h2 {
 					</div>
 				</div>
 			</div>
-		
-	<%
-	
-		Daos_Desercion daosDesercion6 = new Daos_Desercion();
-		ArrayList cantidadHombres6 = daosDesercion6.cantidadDesercionesHombres();
-		ArrayList cantidadMujeres6 = daosDesercion6.cantidadDesercionesMujeres();
-		ArrayList label6 = daosDesercion6.ArregloLabel2();
-				
-	%>
-
-	<script lang="javascript">
-		datosHombres = <%=cantidadHombres6%>;
-		datosMujeres = <%=cantidadMujeres6%>;
-		datosTotal = datosHombres.map( (item, ix) => item + datosMujeres[ix] );
-		label = <%=label6%>
-		
-		console.log(datosTotal + " Prueba");
-		
-		ctx = document.getElementById("myChart6").getContext("2d");
-		label = label;
-		 myChart = new Chart(ctx, {
-			type : "bar",
-			data : {
-				labels : label,
-				datasets : [ {
-					label : "Hombres",
-					data : datosHombres,
-					backgroundColor : "rgba(1,52,240,94)",
-				}, {
-					label : "Mujeres",
-					data : datosMujeres,
-					backgroundColor : "rgba(91,240,103,94)",
-				}, {
-					label : "Total",
-					data : datosTotal,
-					backgroundColor : "rgba(240, 226, 58, 94)",
-				},
-				],
-			},
-		});
-	</script>
-	
-	<script lang="javascript">
-		var chart = bb.generate({
-			data : {
-				columns : [ [ "Literal B", 9 ], [ "Literal C", 22 ],
-						[ "Literal D", 5 ], [ "Literal E", 8 ], ],
-				type : "donut",
-				onclick : function(d, i) {
-					console.log("onclick", d, i);
-				},
-				onover : function(d, i) {
-					console.log("onover", d, i);
-				},
-				onout : function(d, i) {
-					console.log("onout", d, i);
-				},
-			},
-			donut : {
-				title : "44",
-			},
-			bindto : "#donut-chart6",
-		});
-	</script>
 	</div>
 			</form>
 			
