@@ -41,6 +41,18 @@ public class Daos_AspectoEvaluado {
 		}
 	}
 	
+	public boolean agregarAspectoMecanismos(String titulo, String concepto, String evidencia, double calificacion) {
+		String consulta="insert into aspectoevaluado values ( "+null+",'" + titulo + "','" + concepto + "'," + calificacion+ ", '"+evidencia+"', 1);";
+		System.out.println(consulta);
+		if (conexion.insertarDatos(consulta)) { 
+        	conexion.desconectar();
+            return true;
+        } else {
+        	conexion.desconectar();
+            return false;
+        }
+	}
+	
 	public boolean agregarAspecto(String titulo, String concepto, String evidencia, double calificacion) {
 		String consulta="insert into aspectoevaluado values ( "+null+",'" + titulo + "','" + concepto + "'," + calificacion+ ", '"+evidencia+"', 3);";
 		System.out.println(consulta);
@@ -53,4 +65,51 @@ public class Daos_AspectoEvaluado {
         }
 	}
 	
+	public boolean agregarAspectoAPS(String titulo, String concepto, String evidencia, double calificacion) {
+		String consulta="insert into aspectoevaluado values ( "+null+",'" + titulo + "','" + concepto + "'," + calificacion+ ", '"+evidencia+"', 4);";
+		System.out.println(consulta);
+		if (conexion.insertarDatos(consulta)) { 
+        	conexion.desconectar();
+            return true;
+        } else {
+        	conexion.desconectar();
+            return false;
+        }
+	}
+	
+	public boolean agregarAspectoReglamentoEstudiantil(String titulo, String concepto, String evidencia, double calificacion) {
+		String consulta="insert into aspectoevaluado values ( "+null+",'" + titulo + "','" + concepto + "'," + calificacion+ ", '"+evidencia+"', 5);";
+		System.out.println(consulta);
+		if (conexion.insertarDatos(consulta)) { 
+        	conexion.desconectar();
+            return true;
+        } else {
+        	conexion.desconectar();
+            return false;
+        }
+	}
+	
+	public boolean agregarAspectoEvaluacionEstudiantil(String titulo, String concepto, String evidencia, double calificacion) {
+		String consulta="insert into aspectoevaluado values ( "+null+",'" + titulo + "','" + concepto + "'," + calificacion+ ", '"+evidencia+"', 6);";
+		System.out.println(consulta);
+		if (conexion.insertarDatos(consulta)) { 
+        	conexion.desconectar();
+            return true;
+        } else {
+        	conexion.desconectar();
+            return false;
+        }
+	}
+	
+	public boolean agregarAspectoPermanencia(String titulo, String concepto, String evidencia, double calificacion) {
+		String consulta="insert into aspectoevaluado values ( "+null+",'" + titulo + "','" + concepto + "'," + calificacion+ ", '"+evidencia+"', 3);";
+		System.out.println(consulta);
+		if (conexion.insertarDatos(consulta)) { 
+        	conexion.desconectar();
+            return true;
+        } else {
+        	conexion.desconectar();
+            return false;
+        }
+	}
 }

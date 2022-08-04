@@ -55,7 +55,7 @@ small {
 }
 }
 </style>
-
+<link href="Estilos/estilos.css" rel="stylesheet">
 </head>
 <body>
 	<jsp:include page="Menu/MenuPrincipal.jsp" />
@@ -132,40 +132,31 @@ small {
 								<small class="text-muted">Característica</small>
 							</div>
 							<div class="card-body">
-								<p class="card-text">This is a wider card with supporting
-									text below as a natural lead-in to additional content. This
-									content is a little bit longer.</p>
-								<button type="button" class="btn btn-secondary">Más
-									información</button>
-							</div>
+                                    <p class="card-text">Información relacionada con la permanencia de los estudiantes hombres y mujeres.</p>
+                                    <button type="button" class="btn btn-secondary" onclick="location.href='login.jsp'">Permanencia</button>
+                                </div>
 						</div>
 					</div>
 					<div class="col">
 						<div class="card shadow-sm">
 							<img src="imagenes/login_Calidad.png">
 							<h3>Calidad de Estudiantes</h3>
-							<small class="text-muted">Característica</small>
-							<div class="card-body">
-								<p class="card-text">This is a wider card with supporting
-									text below as a natural lead-in to additional content. This
-									content is a little bit longer.</p>
-								<button type="button" class="btn btn-secondary">Más
-									información</button>
-							</div>
+                                <small class="text-muted">Característica</small>
+                                <div class="card-body">
+                                    <p class="card-text">Verificar la calidad de los estudiantes fortalece las capacidades de la escuela.</p>          
+                                    <button type="button" class="btn btn-secondary" onclick="location.href='login.jsp'">Calidad</button>
+                                </div>
 						</div>
 					</div>
 					<div class="col">
 						<div class="card shadow-sm">
 							<img src="imagenes/login_Reglamento.png">
-							<h3>Reglamento Estudiantil</h3>
-							<small class="text-muted">Característica</small>
-							<div class="card-body">
-								<p class="card-text">This is a wider card with supporting
-									text below as a natural lead-in to additional content. This
-									content is a little bit longer.</p>
-								<button type="button" class="btn btn-secondary">Más
-									información</button>
-							</div>
+							<h3>Reglamento Estudiantil  </h3>
+                                <small class="text-muted">Característica</small>
+                                <div class="card-body">
+                                    <p class="card-text">Tener un reglamento estudiantil incluyente compromete a todos los actores del sistema.</p>
+                                    <button type="button" class="btn btn-secondary" onclick="location.href='login.jsp'">Reglamento</button>
+                                </div>
 						</div>
 					</div>
 				</div>

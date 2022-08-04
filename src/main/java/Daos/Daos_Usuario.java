@@ -33,12 +33,24 @@ public class Daos_Usuario {
         return -1; 
     }
     
+    
+    public int Rol(String Usuario) throws SQLException{
+        String consulta = "select nombre_Usuario, rol_id_rol from usuario where nombre_Usuario= '" +Usuario +"';";     
+        rs = conexion.seleccionarDatos(consulta);
+        while (rs.next()){
+            usuario = new Usuario();
+            usuario.setNombre_Usuario(rs.getString(1));
+            usuario.setIdRol_Usuario(rs.getInt(2));
+            return usuario.getIdRol_Usuario();
+        }
+        return -1; 
+    }
+    
     public String nombre_Usuario(String Usuario) throws SQLException{
         String consulta = "SELECT p.nombre_Persona, p.apellido_Persona"
                 + " FROM usuario as u, persona AS p "
                 + "WHERE p.id_Persona=u.persona_id_Persona"
                 + " AND p.id_Persona = (SELECT u.persona_id_Persona FROM usuario AS u WHERE u.nombre_Usuario= '"+Usuario+"');";
-        
         rs = conexion.seleccionarDatos(consulta);
         
         while ( rs.next() ){

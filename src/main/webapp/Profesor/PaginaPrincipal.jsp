@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="en">
-     <%!
-       String Usuario = "";
-       String Nombres = "";
-       String Rol = "";
+    <%!
+      String Usuario = "";
+      String Nombres = "";
+      String Rol = "";
     %>
     <%
 
@@ -49,13 +49,12 @@
 
     </style>
     <body>
-        <jsp:include page="../Menu/MenuAdministrador.jsp"/>
+        <jsp:include page="../Menu/MenuProfesor.jsp"/>
 
         <main>
 
             <div class="album py-5 ">
-                <div class="container">
-
+                <div class="container" style="margin-top: 34px">
 
                     <br>
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -68,7 +67,7 @@
                                 </div>
                                 <div class="card-body">
                                     <p class="card-text">Diligenciar los respectivos formularios por estadísticas.</p>
-                                    <button type="button" class="btn btn-secondary">Ingresar</button>
+                                    <a href="../Administrador/Caracteristicas.jsp"><button type="button" class="btn btn-secondary">Ingresar</button></a>
                                 </div>
                             </div>
                         </div>
@@ -79,21 +78,11 @@
                                 <small class="text-muted">Reportes</small>
                                 <div class="card-body">
                                     <p class="card-text">Generar informes o estadísticas en base a la característica.</p>          
-                                    <button type="button" class="btn btn-secondary">Ingresar</button>
+                                    <a href="../Administrador/Informes.jsp"><button type="button" class="btn btn-secondary">Ingresar</button></a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="card shadow-sm">
-                                <img src="../imagenes/login_Reglamento.png">
-                                <h3>Gestión Usuarios</h3>
-                                <small class="text-muted">Administrar usuarios</small>
-                                <div class="card-body">
-                                    <p class="card-text">Crear, visualizar, editar y/o eliminar usuarios del sistema</p>
-                                    <button type="button" class="btn btn-secondary">Ingresar</button>
-                                </div>
-                            </div>
-                        </div>  
+                         
                     </div>
                 </div>
             </div>
@@ -101,11 +90,9 @@
 
 
         <!-- JavaScript Bundle with Popper -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-           <script src="../assets/dist/js/bootstrap.bundle.min.js"></script> 
     </body>
     <footer>
         <img src="../imagenes/footer.png" width="100%">
     </footer>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </html>

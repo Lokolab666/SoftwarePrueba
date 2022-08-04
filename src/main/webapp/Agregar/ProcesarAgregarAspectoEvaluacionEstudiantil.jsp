@@ -10,6 +10,8 @@
 </head>
 <body>
 	<%
+	
+	
 	Daos_AspectoEvaluado daos_AspectoEvaluado = new Daos_AspectoEvaluado();
 	Aspecto_Evaluado aspecto_Evaluado = new Aspecto_Evaluado();
 
@@ -21,7 +23,7 @@
 	evidencia = request.getParameter("evidencia");
 	calificacion = Double.parseDouble(request.getParameter("calificacion"));
 
-	if (daos_AspectoEvaluado.agregarAspectoMecanismos(titulo, concepto, evidencia, calificacion)) {
+	if (daos_AspectoEvaluado.agregarAspectoEvaluacionEstudiantil(titulo, concepto, evidencia, calificacion)) {
 	%>
 
 	<script lang="javascript">
@@ -34,7 +36,7 @@
 			timer : 1500,
 
 		}).then(function() {
-			location.href = "../Listar/ListaAspectosMecanismos.jsp";
+			location.href = "../Listar/AspectoEvaluadoEvaluacionEstudiantil.jsp";
 		});
 	</script>
 	<%
@@ -50,7 +52,7 @@
 			showConfirmButton : true,
 
 		}).then(function() {
-			location.href = "../AspectosEvaluados/AspectoEvaluadoMecanismos.jsp";
+			location.href = "../AspectosEvaluados/AspectoEvaluadoActividadPoliticaSocial.jsp";
 		});
 	</script>
 	<%

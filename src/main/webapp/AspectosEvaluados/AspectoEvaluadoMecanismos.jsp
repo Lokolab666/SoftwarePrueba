@@ -1,3 +1,4 @@
+<%@page import="Daos.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,7 +18,22 @@ if (SessionActiva.getAttribute("Usuario") == null) {
 <%
 } else {
 
-Usuario = (String) SessionActiva.getAttribute("Usuario");
+Daos_Usuario DP = new Daos_Usuario();
+int Rol = DP.Rol(Usuario);
+System.out.println(Rol + "necamos,p");
+
+if (Rol == 1) {
+%>
+<jsp:include page="../Menu/MenuAdministrador.jsp" />
+
+<%
+} else if (Rol == 2) {
+%>
+<jsp:include page="../Menu/MenuProfesor.jsp" />
+
+
+<%
+}
 }
 %>
 <head>
@@ -37,7 +53,7 @@ body {
 }
 </style>
 <body>
-	<jsp:include page="../Menu/MenuAdministrador.jsp" />
+	
 	<div class="album py-lg-5 ">
 		<div class="container">
 			<div class="col-xl-16">

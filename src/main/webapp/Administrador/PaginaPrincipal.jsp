@@ -1,3 +1,4 @@
+<%@page import="Daos.*"%>
 <!doctype html>
 <html lang="en">
     <%!
@@ -19,13 +20,26 @@
     </script>
 
     <%
-        } else {
+} else {
 
-            Usuario = (String) SessionActiva.getAttribute("Usuario");
-        }
+Daos_Usuario DP = new Daos_Usuario();
+int Rol = DP.Rol(Usuario);
+System.out.print(Rol);
+
+if (Rol == 1) {
+%>
+<jsp:include page="../Menu/MenuAdministrador.jsp" />
+
+<%
+} else if (Rol == 2) {
+%>
+<jsp:include page="../Menu/MenuProfesor.jsp" />
 
 
-    %>
+<%
+}
+}
+%>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,7 +63,7 @@
 
     </style>
     <body>
-        <jsp:include page="../Menu/MenuAdministrador.jsp"/>
+      
 
         <main>
 
@@ -78,7 +92,7 @@
                                 <small class="text-muted">Reportes</small>
                                 <div class="card-body">
                                     <p class="card-text">Generar informes o estadísticas en base a la característica.</p>          
-                                    <button type="button" class="btn btn-secondary">Ingresar</button>
+                                    <a href="../Administrador/Informes.jsp"><button type="button" class="btn btn-secondary">Ver Informes</button></a>
                                 </div>
                             </div>
                         </div>
@@ -89,7 +103,7 @@
                                 <small class="text-muted">Administrar usuarios</small>
                                 <div class="card-body">
                                     <p class="card-text">Crear, visualizar, editar y/o eliminar usuarios del sistema</p>
-                                    <a href="../Administrador/CrearUsuario.jsp"><button type="button" class="btn btn-secondary">Ingresar</button></a>
+                                    <a href="../Administrador/CrearUsuario.jsp"><button type="button" class="btn btn-secondary">Usuarios</button></a>
                                 </div>
                             </div>
                         </div>  

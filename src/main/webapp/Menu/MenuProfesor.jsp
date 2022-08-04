@@ -33,7 +33,7 @@ Usuario = (String) SessionActiva.getAttribute("Usuario");
 <meta name="author"
 	content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
 <meta name="generator" content="Hugo 0.88.1">
-<title>Inicio</title>
+
 
 
 
@@ -69,16 +69,16 @@ Usuario = (String) SessionActiva.getAttribute("Usuario");
 				<button class="navbar-toggler" type="button"
 					data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
 					aria-controls="navbarCollapse" aria-expanded="false"
-					aria-label="تبديل التنقل">
+					>
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarCollapse">
 					<ul class="navbar-nav me-auto mb-2 mb-md-0">
 						<li class="nav-item"><a class="nav-link" aria-current="page"
 							href="#">Inicio</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">Caracteristicas</a>
+						<li class="nav-item"><a class="nav-link" href="../Administrador/Caracteristicas.jsp">Caracteristicas</a>
 						</li>
-						<li class="nav-item"><a class="nav-link " href="#">Informe
+						<li class="nav-item"><a class="nav-link " href="../Administrador/Informes.jsp">Informe
 								y estadísticas</a></li>
 
 						<li class="nav-item dropdown">

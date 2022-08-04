@@ -3,9 +3,9 @@
 <%@page import="Clases.*"%>
 
 <%
-System.out.println((request.getParameter("depto")) + " prueba1");
+System.out.println((request.getParameter("linea")) + " prueba1");
 
-int id=Integer.parseInt(request.getParameter("depto")); 
+int id=Integer.parseInt(request.getParameter("linea")); 
 
 MotivoLineaAccion motivoLinea = new MotivoLineaAccion();
 
@@ -17,7 +17,7 @@ ListarMotivo = daoLinea.listaMotivos(id);
 
 
 <input type="hidden" name="f_opc" id="i_opc">
-<select name="ciudades" required="">
+<select name="motivo" required="">
 	<option value="">-Seleccione-</option>
 	<%
 	for (Object listar1 : ListarMotivo) {// se crea el for para que recorra las ciudades//

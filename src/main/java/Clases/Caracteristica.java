@@ -73,6 +73,10 @@ public class Caracteristica {
 	}
 	
 	
-	
+@Override
+public String toString() {
+	// TODO Auto-generated method stub
+	return super.toString();
+}	
 	
 }

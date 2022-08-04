@@ -20,7 +20,22 @@ if (SessionActiva.getAttribute("Usuario") == null) {
 <%
 } else {
 
-Usuario = (String) SessionActiva.getAttribute("Usuario");
+Daos_Usuario DP = new Daos_Usuario();
+int Rol = DP.Rol(Usuario);
+System.out.print(Rol);
+
+if (Rol == 1) {
+%>
+<jsp:include page="../Menu/MenuAdministrador.jsp" />
+
+<%
+} else if (Rol == 2) {
+%>
+<jsp:include page="../Menu/MenuProfesor.jsp" />
+
+
+<%
+}
 }
 %>
 <head>
@@ -65,7 +80,7 @@ body {
 
 	ArrayList<Rol> listarol = new ArrayList<Rol>();
 	ArrayList<Usuario> listausuarios = new ArrayList<Usuario>();%>
-	<jsp:include page="../Menu/MenuAdministrador.jsp" />
+
 	<div class="album py-lg-5 ">
 		<div class="container">
 			<div class="col-xl-12">

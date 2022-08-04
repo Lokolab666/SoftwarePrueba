@@ -93,8 +93,36 @@ public class Daos_Caracterisitica {
 		}
 	}
 	
+	public ArrayList<Caracteristica> informacionDesercion(int idCaracteristica){
+		ArrayList<Caracteristica> informacionDesercion = new ArrayList<>();
+		String consulta = "select ponderacion_caracteristica, nivel_caracteristica, calificacion_caracteristica , gradoCumplimiento_caracteristica  from caracteristica where id_caracteristica="+idCaracteristica+";";
+		
+		try {
+			rs = conexion.seleccionarDatos(consulta);
+			while (rs.next()) {
+				
+				caracterisitca = new Caracteristica();
+				caracterisitca.setPonderacion_Caracteristica(rs.getInt(1));
+				
+				caracterisitca.setNivel_Caracteristica(rs.getString(2));
+				caracterisitca.setCalificacion_Caracteristica(rs.getDouble(3));
+				caracterisitca.setGrado_Cumplimiento_Caracteristica(rs.getString(4));
+				
+				informacionDesercion.add(caracterisitca);
+			}
+			conexion.desconectar();
+		
+			return informacionDesercion;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			conexion.desconectar();
+			return null;
+		}	
+	}
+	
 	public boolean AgregarPonderacion(int idCaracteristica, int ponderacion, String nivel, double calificacion, String gradoCumplimiento) {
 		String consulta ="update caracteristica set ponderacion_caracteristica="+ ponderacion +",nivel_caracteristica='" +nivel +"', calificacion_caracteristica="+calificacion+", gradoCumplimiento_caracteristica ='"+gradoCumplimiento+"' where id_caracteristica="+idCaracteristica+";";
+		System.out.println(consulta);
 		if (conexion.modificarDatos(consulta)) {
 			conexion.desconectar();
 			return true;

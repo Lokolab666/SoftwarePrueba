@@ -42,7 +42,7 @@
                                 <a class="nav-link" aria-current="page" href="index.jsp">Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Informes y estadísticas</a>
+                                <a class="nav-link" href="login.jsp">Informes y estadísticas</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="login.jsp">Iniciar sesión</a>

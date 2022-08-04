@@ -72,17 +72,15 @@ body {
 </style>
 <body>
 
-	<%!
+	<%!double calificacionAspecto;
+	int idAspecto;
+	String nombreAspecto, conceptoAspecto, evidenciaAspecto;
+
+	Daos_AspectoEvaluado daos_AspectoEvaluado = new Daos_AspectoEvaluado();
+	Aspecto_Evaluado claseaspectoEvaluado = new Aspecto_Evaluado();
+
+	ArrayList<Aspecto_Evaluado> listaAspecto = new ArrayList<Aspecto_Evaluado>();%>
 	
-	int cantidadHombres, cantidadMujeres, cantidadMatriculados, totalDesertores, idDesercion;
-	double tasaDesercion;
-	String periodo;
-
-	Daos_Desercion daos_Desercion = new Daos_Desercion();
-	Desercion desercion = new Desercion();
-
-	ArrayList<Desercion> listainformacion = new ArrayList<Desercion>();%>
-
 	<div class="album py-lg-5 ">
 		<div class="container">
 			<div class="col-xl-16">
@@ -96,10 +94,12 @@ body {
 					</ol>
 				</nav>
 
-				<header class="py-3 mb-4 border-bottom"> 
-				
-				<button
-									type="button" class="btn btn-warning" disabled="disabled">
+				<header class="py-3 mb-4 border-bottom">
+					
+
+
+				<a href="../Listar/InformacionActividadSocial.jsp">	<button
+									type="button" class="btn btn-warning" >
 									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 										fill="currentColor" class="bi bi-list-ol" viewBox="0 0 16 16">
   <path fill-rule="evenodd"
@@ -108,9 +108,9 @@ body {
 											d="M1.713 11.865v-.474H2c.217 0 .363-.137.363-.317 0-.185-.158-.31-.361-.31-.223 0-.367.152-.373.31h-.59c.016-.467.373-.787.986-.787.588-.002.954.291.957.703a.595.595 0 0 1-.492.594v.033a.615.615 0 0 1 .569.631c.003.533-.502.8-1.051.8-.656 0-1-.37-1.008-.794h.582c.008.178.186.306.422.309.254 0 .424-.145.422-.35-.002-.195-.155-.348-.414-.348h-.3zm-.004-4.699h-.604v-.035c0-.408.295-.844.958-.844.583 0 .96.326.96.756 0 .389-.257.617-.476.848l-.537.572v.03h1.054V9H1.143v-.395l.957-.99c.138-.142.293-.304.293-.508 0-.18-.147-.32-.342-.32a.33.33 0 0 0-.342.338v.041zM2.564 5h-.635V2.924h-.031l-.598.42v-.567l.629-.443h.635V5z" />
 </svg>
 									Lista información registrada
-								</button>
-								<a href="../Listar/AspectoEvaluadoPermanencia.jsp"><button
-									type="button" class="btn btn-warning">
+								</button></a>
+								<button
+									type="button" class="btn btn-warning" disabled="disabled">
 									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 										fill="currentColor" class="bi bi-list-ol" viewBox="0 0 16 16">
   <path fill-rule="evenodd"
@@ -119,10 +119,10 @@ body {
 											d="M1.713 11.865v-.474H2c.217 0 .363-.137.363-.317 0-.185-.158-.31-.361-.31-.223 0-.367.152-.373.31h-.59c.016-.467.373-.787.986-.787.588-.002.954.291.957.703a.595.595 0 0 1-.492.594v.033a.615.615 0 0 1 .569.631c.003.533-.502.8-1.051.8-.656 0-1-.37-1.008-.794h.582c.008.178.186.306.422.309.254 0 .424-.145.422-.35-.002-.195-.155-.348-.414-.348h-.3zm-.004-4.699h-.604v-.035c0-.408.295-.844.958-.844.583 0 .96.326.96.756 0 .389-.257.617-.476.848l-.537.572v.03h1.054V9H1.143v-.395l.957-.99c.138-.142.293-.304.293-.508 0-.18-.147-.32-.342-.32a.33.33 0 0 0-.342.338v.041zM2.564 5h-.635V2.924h-.031l-.598.42v-.567l.629-.443h.635V5z" />
 </svg>
 									Lista aspectos evaluados caracteristica
-								</button></a>
+								</button>
 								
 								
-					<a href="../AspectosEvaluados/AspectoEvaluadoPermanencia.jsp"><button
+					<a href="../AspectosEvaluados/AspectoEvaluadoActividadPoliticaSocial.jsp"><button
 											type="button" class="btn btn-warning">
 											<svg xmlns="http://www.w3.org/2000/svg" width="16"
 												height="16" fill="currentColor"
@@ -145,7 +145,7 @@ body {
 </svg>
 											Añadir información
 										</button></a>
-				
+
 				</header>
 
 				<div class="container" style="margin-top: 10px; padding: 5px">
@@ -154,51 +154,33 @@ body {
 
 						<thead>
 							<tr>
-								<th scope="col">Periodo</th>
-								<th scope="col">N° hombres</th>
-								<th scope="col">N° mujeres</th>
-								<th scope="col">Cantidad desertores</th>
-								<th scope="col">N° matriculados</th>
-								
-								<th scope="col">Tasa desercion</th>
 
-								<th scope="col">Modificar datos</th>
+								<th scope="col">Nombre</th>
+								<th scope="col">Concepto</th>
+								<th scope="col">Calificación</th>
+								<th scope="col">Evidencias</th>
+								<th scope="col">Modificar</th>
 							</tr>
 						</thead>
 						<tbody>
 
 							<%
-							listainformacion = daos_Desercion.lista();
-							for (int i = 0; i < listainformacion.size(); i++) {
-								desercion = (Desercion) listainformacion.get(i);
-
-								periodo = desercion.getPeriodoString();
-								cantidadHombres = desercion.getCantidadHombres();
-								cantidadMujeres = desercion.getCantidadMujeres();
-								totalDesertores = cantidadHombres + cantidadMujeres;
-								cantidadMatriculados = desercion.getCantidadMatriculados();
-								tasaDesercion = desercion.getTasa_desercion();
-								idDesercion = desercion.getIdDesercion();
-
+							listaAspecto = daos_AspectoEvaluado.listaAspectoEvaluado(4);
+							for (int i = 0; i < listaAspecto.size(); i++) {
+								claseaspectoEvaluado = (Aspecto_Evaluado) listaAspecto.get(i);
+								nombreAspecto = claseaspectoEvaluado.getNombre_aspectoEvaluado();
+								conceptoAspecto = claseaspectoEvaluado.getConcepto_aspectoEvaluado();
+								calificacionAspecto = claseaspectoEvaluado.getCalificacion_aspectoEvaluado();
+								evidenciaAspecto = claseaspectoEvaluado.getEvidencia_aspectoEvaluado();
+								idAspecto = claseaspectoEvaluado.getId_Aspecto_Evaluado();
 								out.println("<tr>");
-								out.println("<td>" + periodo);
-								out.println("<td>" + cantidadHombres);
-								out.println("<td>" + cantidadMujeres);
-								out.println("<td>" + totalDesertores);
-								out.println("<td>" + cantidadMatriculados);
-								
-
-								out.println("<td>" + tasaDesercion + "</td>");
-							%>
-
-							<td><a
-								href="../Administrador/AgregarPonderacion.jsp?Id_Caracteristica=<%=idDesercion%>">
-									<button type='button' class='btn btn-outline-warning'
-										data-bs-toggle='modal' data-bs-target='#exampleModal'
-										data-bs-whatever='@mdo'>
-										<i class='fa fa-pencil-square-o'></i>
-									</button>
-							</a></td>
+								out.println("<td>" + nombreAspecto);
+								out.println("<td>" + conceptoAspecto);
+								out.println("<td>" + calificacionAspecto);
+								out.println("<td>" + evidenciaAspecto + "</td>");
+							%><td><a
+								href="Mostrar_Modificar_Actividad.jsp?Id_Persona=<%=idAspecto%>">
+								<button type='button' class='btn btn-outline-warning'><i class='fa fa-pencil-square-o'></i></button></a></td>
 							<%
 							out.println("</tr>");
 							}
@@ -209,9 +191,6 @@ body {
 
 					</table>
 				</div>
-
-
-
 				<!-- JQUERY -->
 				<script src="https://code.jquery.com/jquery-3.4.1.js"
 					integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
@@ -261,8 +240,7 @@ body {
 															lengthMenu : [
 																	[ 10, 30,
 																			-1 ],
-																	[ 10, 
-					25,
+																	[ 10, 25,
 																			"All" ] ],
 														});
 									});
@@ -282,6 +260,7 @@ body {
 	rel="stylesheet"
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 	crossorigin="anonymous">
+<script src="../js/form-validation.js"></script>
 
 
 </html>
