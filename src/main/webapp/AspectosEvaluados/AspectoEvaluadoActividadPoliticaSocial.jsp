@@ -100,11 +100,11 @@ body {
 				</header>
 				<form class="needs-validation" novalidate id="caracteristica1"
 					method="post"
-					action="../Agregar/ProcesarAgregarAspectoEvaluadoPermanencia.jsp">
+					action="../Agregar/ProcesarAgregarAspectoAPS.jsp">
 					<div class="container">
 
 						<div class="row justify-content-center" style="margin-top: 30px">
-							<h3 style="align-content: center;">Permanencia y deserción</h3>
+							<h3 style="align-content: center;">Actividad de politica social</h3>
 							
 							<div class="col-12">
 								<label for="floatingTextarea2">Título</label>

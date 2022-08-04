@@ -38,7 +38,6 @@ public class Daos_Usuario {
                 + " FROM usuario as u, persona AS p "
                 + "WHERE p.id_Persona=u.persona_id_Persona"
                 + " AND p.id_Persona = (SELECT u.persona_id_Persona FROM usuario AS u WHERE u.nombre_Usuario= '"+Usuario+"');";
-        
         rs = conexion.seleccionarDatos(consulta);
         
         while ( rs.next() ){

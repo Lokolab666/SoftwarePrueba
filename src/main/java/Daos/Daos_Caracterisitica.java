@@ -95,6 +95,7 @@ public class Daos_Caracterisitica {
 	
 	public boolean AgregarPonderacion(int idCaracteristica, int ponderacion, String nivel, double calificacion, String gradoCumplimiento) {
 		String consulta ="update caracteristica set ponderacion_caracteristica="+ ponderacion +",nivel_caracteristica='" +nivel +"', calificacion_caracteristica="+calificacion+", gradoCumplimiento_caracteristica ='"+gradoCumplimiento+"' where id_caracteristica="+idCaracteristica+";";
+		System.out.println(consulta);
 		if (conexion.modificarDatos(consulta)) {
 			conexion.desconectar();
 			return true;
